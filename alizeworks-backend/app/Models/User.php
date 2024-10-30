@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-
+use Termwind\Components\Raw;
 
 class User extends Authenticatable
 {
@@ -60,5 +60,13 @@ class User extends Authenticatable
     public function userPromotions(): HasMany
     {
         return $this->hasMany(UserPromotion::class);
+    }
+
+    /**
+     * Get the ratings associated with the user
+     */
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class);
     }
 }
