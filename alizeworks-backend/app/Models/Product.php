@@ -17,7 +17,7 @@ class Product extends Model
     }
 
     // Many to One relationship: one product has one type
-    public function type()
+    public function types()
     {
         return $this->belongsTo(Type::class);
     }

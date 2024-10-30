@@ -17,7 +17,7 @@ return new class extends Migration
             // Column is unsigned so it can't be < 0
             $table->unsignedTinyInteger('rating')->default(1);
             $table->foreignId('user_id')->constrained(table: 'users', indexName: 'rating_user_id')->onDelete('cascade');
-            $table->foreignId('product_id')->constrained(table: 'products', indexName: 'product_user_id')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained(table: 'products', indexName: 'rating_product_id')->onDelete('cascade');
             $table->timestamps();
         });
     }
