@@ -16,8 +16,7 @@ class AdminUserSeeder extends Seeder
         $user = new AdminUser();
 
         $user->username = 'adminNG';
-        $user->first_name = 'Nerea';
-        $user->last_name = 'González Selva';
+        $user->name = 'Nerea González Selva';
         $user->email = 'ereadoce.ng@gmail.com';
         $user->password = bcrypt('admin');
 
