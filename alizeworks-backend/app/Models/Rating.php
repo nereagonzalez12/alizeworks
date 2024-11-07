@@ -10,7 +10,7 @@ class Rating extends Model
     /**
      * Get the product associated with the user rating
      */
-    public function product(): HasOne
+    public function products(): HasOne
     {
         return $this->hasOne(Product::class);
     }

@@ -42,7 +42,12 @@ php artisan make:request StorePostRequest
 ## Route list
 php artisan r:l 
 
+## API REST
+php artisan install:api
+
 ## Traductions
 php artisan lang:publish
 # Laravel Lang package
 composer require laravel-lang/common
+
+

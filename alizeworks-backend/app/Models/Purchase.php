@@ -19,9 +19,9 @@ class Purchase extends Model
     /**
      * Get the product associated with the purchase
      */
-    public function products(): HasOne
+    public function products(): HasMany
     {
-        return $this->hasOne(Product::class);
+        return $this->hasMany(Product::class);
     }
 
     /**

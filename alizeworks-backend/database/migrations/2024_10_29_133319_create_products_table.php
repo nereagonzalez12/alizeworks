@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
             $table->string('name');
-            $table->foreignId('type_id')->constrained(table: 'types', indexName: 'products_type_id')->onDelete('cascade');
+            $table->foreignId('type_id')->constrained(table: 'types', indexName: 'product_type_id')->onDelete('cascade');
             $table->decimal('price', places: 2);
             $table->boolean('is_active')->default(1);
             $table->timestamps();
