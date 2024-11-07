@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTypeRequest;
 use App\Models\Product;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TypeController extends Controller
 {
@@ -17,31 +18,47 @@ class TypeController extends Controller
     {
         $types = Type::all();
         return response()->json([
-            'status' => true,
-            'types' => $types
+            'status' => 200,
+            'message' => 'Types retrieved successfully',
+            'data' => $types
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTypeRequest $request)
+    public function store(Request $request)
     {
-        $type = Type::create($request->all());
 
-        return response()->json([
-            'status' => true,
-            'message' => "Type Created successfully!",
-            'type' => $type
-        ], 200);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:types',
+        ]);
+
+        if ($validator->fails()) {
+            $data = [
+                'status' => 400,
+                'message' => "Validation error",
+                'errors' => $validator->errors(),
+            ];
+            return response()->json($data, 400);
+        }
+
+        $type =  Type::create($request->all());
+
+        if (!$type) {
+            $data = [
+                'status' => 500,
+                'message' => "Error creating type",
+            ];
+            return response()->json($data, 500);
+        }
+
+        $data = [
+            'status' => 201,
+            'message' => 'Type created successfully',
+            'data' => $type,
+        ];
+        return response()->json($data);
     }
 
     /**

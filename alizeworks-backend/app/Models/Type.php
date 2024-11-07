@@ -10,6 +10,11 @@ class Type extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+    ];
+
     protected function name(): Attribute
     {
         return Attribute::make(
