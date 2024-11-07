@@ -90,42 +90,6 @@ class TypeController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:types',
-        ]);
-
-        if ($validator->fails()) {
-            $data = [
-                'status' => 400,
-                'message' => "Validation error",
-                'errors' => $validator->errors(),
-            ];
-            return response()->json($data, 400);
-        }
-
-        $type = Type::find($id);
-        if (!$type) {
-            $data = [
-                'status' => 404,
-                'message' => 'Type not found',
-            ];
-            return response()->json($data, 404);
-        };
-        $type->update($request->all());
-
-        $data = [
-            'status' => 200,
-            'message' => 'Type updated successfully',
-            'data' => $type
-        ];
-        return response()->json($data, 200);
-    }
-
-    /**
-     * Update the specified resource in storage partially.
-     */
-    public function updatePartial(Request $request, $id)
-    {
-        $validator = Validator::make($request->all(), [
             'name' => 'unique:types',
         ]);
 
@@ -155,6 +119,7 @@ class TypeController extends Controller
         ];
         return response()->json($data, 200);
     }
+
 
     /**
      * Remove the specified resource from storage.

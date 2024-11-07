@@ -9,9 +9,4 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('auth:sanctum');
 
 // ../api/types   -   -   -   -   TYPES ROUTES
-Route::get('/types', [TypeController::class, 'index']);
-Route::get('/types/{id}', [TypeController::class, 'show']);
-Route::post('/types', [TypeController::class, 'store']);
-Route::put('/types/{id}', [TypeController::class, 'update']);
-Route::patch('/types/{id}', [TypeController::class, 'updatePartial']);
-Route::delete('/types/{id}', [TypeController::class, 'destroy']);
+Route::apiResource('types', TypeController::class);
