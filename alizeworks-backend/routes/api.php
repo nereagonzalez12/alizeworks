@@ -13,4 +13,5 @@ Route::get('/types', [TypeController::class, 'index']);
 Route::get('/types/{id}', [TypeController::class, 'show']);
 Route::post('/types', [TypeController::class, 'store']);
 Route::put('/types/{id}', [TypeController::class, 'update']);
+Route::patch('/types/{id}', [TypeController::class, 'updatePartial']);
 Route::delete('/types/{id}', [TypeController::class, 'destroy']);
