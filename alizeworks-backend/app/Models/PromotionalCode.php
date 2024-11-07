@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PromotionalCodes extends Model
+class PromotionalCode extends Model
 {
     // Connecting to table in mysql
     protected $table = 'promotional_codes';
