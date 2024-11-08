@@ -6,9 +6,9 @@ use App\Filament\Resources\TypeResource\Pages;
 use App\Filament\Resources\TypeResource\RelationManagers;
 use App\Models\Type;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Tables\Columns;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -18,7 +18,7 @@ class TypeResource extends Resource
 {
     protected static ?string $model = Type::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cube';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -26,6 +26,7 @@ class TypeResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name'),
                 Forms\Components\RichEditor::make('description'),
+
             ]);
     }
 
@@ -33,7 +34,10 @@ class TypeResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('description')->html(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime(),
             ])
             ->filters([
                 //

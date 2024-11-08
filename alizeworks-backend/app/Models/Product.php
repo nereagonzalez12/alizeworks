@@ -9,6 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'media_id'
+    ];
+
     protected function casts(): array
     {
         return [

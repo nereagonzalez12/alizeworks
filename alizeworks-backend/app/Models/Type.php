@@ -12,7 +12,7 @@ class Type extends Model
 
     protected $fillable = [
         'name',
-        'description',
+        'description'
     ];
 
     protected function name(): Attribute
