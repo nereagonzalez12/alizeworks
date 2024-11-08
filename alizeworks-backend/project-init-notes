@@ -50,4 +50,12 @@ php artisan lang:publish
 # Laravel Lang package
 composer require laravel-lang/common
 
+## Filament 
+composer require filament/filament --ignore-platform-req=ext-zip
+php artisan filament:install --panels
 
+# Curator handle the upload of image and video files
+composer require awcodes/filament-curator
+
+# Resoruces 
+php artisan filament:resource 
