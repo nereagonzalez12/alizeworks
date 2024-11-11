@@ -11,8 +11,17 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'slug',
+        'types_id',
+        'price',
+        'is_active',
         'media_id'
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     protected function casts(): array
     {

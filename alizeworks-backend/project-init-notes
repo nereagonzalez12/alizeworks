@@ -59,3 +59,4 @@ composer require awcodes/filament-curator
 
 # Resoruces 
 php artisan filament:resource 
+composer require blade-ui-kit/blade-heroicons
