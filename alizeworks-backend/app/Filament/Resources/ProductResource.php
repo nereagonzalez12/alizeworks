@@ -26,7 +26,7 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->label('Product name')->required(),
+                Forms\Components\TextInput::make('name')->label('Product Name')->required(),
                 Forms\Components\TextInput::make('slug')->label('The part of a URL that identifies a particular page on a website in an easy-to-read form')->required(),
                 Forms\Components\Select::make('types_id')->label('Type')->relationship('types', 'name')->required(),
                 Forms\Components\TextInput::make('price')->label('Price')->mask(RawJs::make('$money($input)'))
